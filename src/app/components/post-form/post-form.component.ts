@@ -9,7 +9,7 @@ import { Post } from '../../models/Post';
 })
 export class PostFormComponent implements OnInit {
   post: Post;
-  @Output() newpost: EventEmitter<Post> = new EventEmitter();
+  @Output() newPost: EventEmitter<Post> = new EventEmitter();
   constructor(private postService: PostService) {}
 
   ngOnInit() {}
@@ -18,7 +18,7 @@ export class PostFormComponent implements OnInit {
       alert('Please add post');
     } else {
       this.postService.savePost({ title, body } as Post).subscribe(post => {
-        this.newpost.emit(post);
+        this.newPost.emit(post);
       });
     }
   }

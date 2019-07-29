@@ -11,6 +11,7 @@ const HttpOptions = {
 @Injectable()
 export class PostService {
   postsUrl: string = 'https://jsonplaceholder.typicode.com/posts';
+
   constructor(private http: HttpClient) {}
 
   getPosts(): Observable<Post[]> {
