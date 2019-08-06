@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Post } from '../models/Post';
 
-const HttpOptions = {
+const httpOptions = {
   headers: new HttpHeaders({ 'content-type': 'application/json' })
 };
 
@@ -18,6 +18,12 @@ export class PostService {
     return this.http.get<Post[]>(this.postsUrl);
   }
   savePost(post: Post): Observable<Post> {
-    return this.http.post<Post>(this.postsUrl, post, HttpOptions);
+    return this.http.post<Post>(this.postsUrl, post, httpOptions);
+  }
+
+  updatePost(post: Post): Observable<Post> {
+    const url = `${this.postsUrl}/${post.id}`;
+
+    return this.http.put<Post>(url, post, httpOptions);
   }
 }
