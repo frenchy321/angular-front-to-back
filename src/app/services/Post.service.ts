@@ -30,7 +30,7 @@ export class PostService {
   getPost(id: number): Observable<Post> {
     const url = `${this.postsUrl}/${id}`;
 
-    return this.http.put<Post>(url);
+    return this.http.get<Post>(url);
   }
 
   removePost(post: Post | number): Observable<Post> {
